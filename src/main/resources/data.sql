@@ -1,0 +1,9 @@
+--INSERT INTO CLIENTE(id, name, age, mail) VALUES('1', 'Ana', 21, 'ana@teste.com');
+
+DROP TABLE IF EXISTS CLIENTE;
+CREATE TABLE CLIENTE(
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255),
+age INT, mail VARCHAR(255),
+document VARCHAR(255)
+);
