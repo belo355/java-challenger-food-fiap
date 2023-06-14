@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.model;
 
-import com.fiap.challenger.food.application.domain.model.form.ClienteForm;
+import com.fiap.challenger.food.application.domain.model.form.ClienteFormDto;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -31,11 +31,11 @@ public class Cliente {
         this.document = document;
     }
 
-    public Cliente(ClienteForm clienteForm) {
-        this.name = clienteForm.getName();
-        this.age = clienteForm.getAge();
-        this.mail = clienteForm.getMail();
-        this.document = clienteForm.getDocument();
+    public Cliente(ClienteFormDto clienteFormDto) {
+        this.name = clienteFormDto.getName();
+        this.age = clienteFormDto.getAge();
+        this.mail = clienteFormDto.getMail();
+        this.document = clienteFormDto.getDocument();
     }
     public String getMail() {
         return mail;
