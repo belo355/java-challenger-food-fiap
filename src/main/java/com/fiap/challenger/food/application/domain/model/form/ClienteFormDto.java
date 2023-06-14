@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.model.form;
 
-public class ClienteForm {
+public class ClienteFormDto {
 
     private final String name;
     private final int age;
@@ -8,7 +8,7 @@ public class ClienteForm {
 
     private final String document;
 
-    public ClienteForm(String name, int age, String mail, String document) {
+    public ClienteFormDto(String name, int age, String mail, String document) {
         this.name = name;
         this.age = age;
         this.mail = mail;
