@@ -3,15 +3,17 @@ package com.fiap.challenger.food.application.domain.service;
 import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.application.domain.model.dto.ProductoDto;
 import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
-import com.fiap.challenger.food.common.CategoriaEnum;
+import com.fiap.challenger.food.common.CategoryEnum;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -105,9 +107,10 @@ public class ProductoService {
         }
     }
 
-    public ResponseEntity findByCategory(CategoriaEnum categoriaEnum) {
-        Optional<Producto> products = productoRepository.findByCategory(categoriaEnum);
-        if (products.isPresent()) {
+    public ResponseEntity findByCategory(String category) {
+        CategoryEnum categoryEnum1 = CategoryEnum.valueOf(category.toUpperCase());
+        Optional<List<Producto>> products = productoRepository.findByCategory(categoryEnum1);
+        if (products.isPresent() && !products.get().isEmpty()) {
             return new ResponseEntity<>(products, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Produtos nao encontrados para esta categoria", HttpStatus.NO_CONTENT);

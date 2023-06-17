@@ -1,12 +1,12 @@
 package com.fiap.challenger.food.application.domain.model.dto;
 
 import com.fiap.challenger.food.application.domain.model.Producto;
-import com.fiap.challenger.food.common.CategoriaEnum;
+import com.fiap.challenger.food.common.CategoryEnum;
 
 public class ProductoDto {
     private String description;
     private String brand;
-    private CategoriaEnum category;
+    private CategoryEnum category;
     private String valor;
 
     public ProductoDto(){}
@@ -35,11 +35,11 @@ public class ProductoDto {
         this.brand = brand;
     }
 
-    public CategoriaEnum getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(CategoriaEnum category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 

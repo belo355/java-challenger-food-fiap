@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.common;
 
-public enum CategoriaEnum {
+public enum CategoryEnum {
     ALIMENTOS, BEBIDAS, ACOMPANHAMENTOS
 }
 
