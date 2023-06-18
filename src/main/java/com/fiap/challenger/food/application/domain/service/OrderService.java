@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.UnexpectedRollbackException;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -55,10 +56,10 @@ public class OrderService {
     private ResponseEntity createNewOrder(Order order) {
         try {
             orderRepository.save(order);
-            logger.info("pedido criado com sucesso");
+            logger.info("Pedido criado com sucesso");
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
-            logger.error("erro ao cadastrar novo pedido, cause: {}", e.getMessage());
+            logger.error("Erro ao cadastrar novo pedido, cause: {}", e.getMessage());
             return ResponseEntity.badRequest().build();
         }
     }
