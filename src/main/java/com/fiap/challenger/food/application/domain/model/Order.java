@@ -16,7 +16,7 @@ public class Order {
 
     private LocalDateTime dateOrder;
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     private final List<Producto> products;
 
     @ManyToOne

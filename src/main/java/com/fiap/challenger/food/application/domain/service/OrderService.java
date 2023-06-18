@@ -41,8 +41,8 @@ public class OrderService {
 
     public ResponseEntity create(OrderFormDto orderFormDto) {
         Order order = new Order(orderFormDto);
-//        LocalDateTime dateOrder = LocalDateTime.now();
-//        order.setDateOrder(dateOrder);
+        LocalDateTime dateOrder = LocalDateTime.now();
+        order.setDateOrder(dateOrder);
         if (order.getProductos().isEmpty()) {
             logger.info("pedido nao pode ser criado sem produtos selecionados");
             return ResponseEntity.noContent().build();
