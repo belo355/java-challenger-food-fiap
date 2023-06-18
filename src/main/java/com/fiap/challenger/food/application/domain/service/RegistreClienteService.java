@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +27,6 @@ public class RegistreClienteService {
     public ResponseEntity<HttpStatus> registre(ClienteFormDto clienteFormDto) {
         Optional<Cliente> optionalCliente = findByCPF(clienteFormDto.getDocument());
         if (!optionalCliente.isPresent()) {
-//            Cliente cliente = mapper.toMapperCliente(clienteForm); //TODO: ajustar inject mapper
             Cliente cliente = new Cliente(clienteFormDto);
             this.save(cliente);
             logger.info("salvando cliente...");
@@ -51,5 +51,9 @@ public class RegistreClienteService {
         } catch (Exception e) {
             logger.error("Erro ao cadastrar novo cliente: {}" + "cause: {} ", cliente.getMail(), e.getCause());
         }
+    }
+
+    public ResponseEntity findAll() {
+        return new ResponseEntity<>(clienteRepository.findAll(), HttpStatus.OK);
     }
 }

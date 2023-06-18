@@ -1,7 +1,7 @@
 package com.fiap.challenger.food.application.domain.model;
 
 import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
-import com.fiap.challenger.food.common.CategoriaEnum;
+import com.fiap.challenger.food.common.CategoryEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +12,11 @@ import javax.persistence.Id;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private String brand;
-    private CategoriaEnum category;
+    private CategoryEnum category;
     private String valor;
 
     public Producto(ProductoFormDto productoFormDto) {
@@ -39,7 +39,7 @@ public class Producto {
         return brand;
     }
 
-    public CategoriaEnum getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
@@ -55,7 +55,7 @@ public class Producto {
         this.brand = brand;
     }
 
-    public void setCategory(CategoriaEnum category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 

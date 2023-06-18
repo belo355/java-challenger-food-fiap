@@ -2,7 +2,6 @@ package com.fiap.challenger.food.infraestruture.in;
 
 import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
 import com.fiap.challenger.food.application.domain.service.ProductoService;
-import com.fiap.challenger.food.common.CategoriaEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,10 +38,10 @@ public class ProductoController {
     }
 
 
-    @GetMapping(path = "/product/category")
+    @GetMapping(path = "/product/category/{category}")
     @Transactional
-    public ResponseEntity findByCategory(@RequestBody CategoriaEnum categoriaEnum) {
-        return productoService.findByCategory(categoriaEnum);
+    public ResponseEntity findByCategory(@PathVariable String category) {
+        return productoService.findByCategory(category);
     }
 
 
