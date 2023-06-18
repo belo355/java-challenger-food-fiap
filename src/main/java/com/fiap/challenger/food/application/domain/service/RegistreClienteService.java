@@ -29,6 +29,7 @@ public class RegistreClienteService {
 //            Cliente cliente = mapper.toMapperCliente(clienteForm); //TODO: ajustar inject mapper
             Cliente cliente = new Cliente(clienteFormDto);
             this.save(cliente);
+            logger.info("salvando cliente...");
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
         logger.info("cliente ja possui cadastro");
