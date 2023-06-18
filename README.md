@@ -102,7 +102,11 @@ curl --location 'http://localhost:8080/order/create' \
     }
 }'
    ```
-
+- [x] Listagem de pedidos
+ ```sh
+curl --location 'http://localhost:8080/order' \
+--data ''
+   ```
 
 
 

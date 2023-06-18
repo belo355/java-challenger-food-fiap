@@ -17,15 +17,17 @@ public class Order {
     private LocalDateTime dateOrder;
 
     @ManyToMany(cascade=CascadeType.ALL)
-    private final List<Producto> products;
+    private List<Producto> products;
 
     @ManyToOne
-    private final Cliente cliente;
+    private Cliente cliente;
 
     public Order(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
         this.cliente = orderFormDto.getCliente();
     }
+
+    public Order(){}
 
     public Long getId() {
         return id;
