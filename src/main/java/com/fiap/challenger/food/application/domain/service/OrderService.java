@@ -1,20 +1,24 @@
 package com.fiap.challenger.food.application.domain.service;
 
 import com.fiap.challenger.food.application.domain.model.Order;
+import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.application.domain.model.dto.OrderDto;
 import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
+import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
+import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.UnexpectedRollbackException;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -22,10 +26,12 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     private final OrderRepository orderRepository;
+    private final ProductoRepository productoRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, ProductoRepository productoRepository) {
         this.orderRepository = orderRepository;
+        this.productoRepository = productoRepository;
     }
 
     public ResponseEntity<List<OrderDto>> findAll() {
@@ -61,6 +67,19 @@ public class OrderService {
         } catch (Exception e) {
             logger.error("Erro ao cadastrar novo pedido, cause: {}", e.getMessage());
             return ResponseEntity.badRequest().build();
+        }
+    }
+
+    public ResponseEntity<OrderDto> addIngredient(OrderFormDto orderFormDto, Long ingredient) {
+        Optional<Producto> productoIngredient = productoRepository.findById(ingredient);
+        if(productoIngredient.isPresent()){
+            List<Producto> products = orderFormDto.getProductoList();
+            products.add(productoIngredient.get());
+            orderFormDto.setProductoList(products);
+            OrderDto orderDto = new OrderDto(orderFormDto);
+            return new ResponseEntity<>(orderDto, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 }

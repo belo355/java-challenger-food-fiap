@@ -3,6 +3,7 @@ package com.fiap.challenger.food.application.domain.model.dto;
 import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
+import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,6 +19,11 @@ public class OrderDto {
         this.dateOrder = order.getDateOrder();
         this.productoList = order.getProductos();
         this.cliente = order.getCliente();
+    }
+
+    public OrderDto(OrderFormDto orderFormDto) {
+        this.cliente = orderFormDto.getCliente();
+        this.productoList = orderFormDto.getProductoList();
     }
 
     public LocalDateTime getDateOrder() {

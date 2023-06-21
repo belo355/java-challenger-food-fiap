@@ -1,16 +1,15 @@
 package com.fiap.challenger.food.infraestruture.in;
 
-import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
+import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
 import com.fiap.challenger.food.application.domain.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import javax.websocket.server.PathParam;
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -32,5 +31,11 @@ public class OrderController {
     @Transactional
     public ResponseEntity create(@RequestBody OrderFormDto orderFormDto) {
         return orderService.create(orderFormDto);
+    }
+
+    @PostMapping(path = "/order/add/ingredient/{ingredientId}")
+    @Transactional
+    public ResponseEntity addIngredient(@RequestBody OrderFormDto orderFormDto, @PathVariable Long ingredientId) {
+        return orderService.addIngredient(orderFormDto, ingredientId);
     }
 }

@@ -18,4 +18,12 @@ public class OrderFormDto {
     public Cliente getCliente() {
         return cliente;
     }
+
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
