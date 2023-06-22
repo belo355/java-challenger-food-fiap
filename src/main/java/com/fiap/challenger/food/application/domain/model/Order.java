@@ -22,6 +22,8 @@ public class Order {
     @ManyToOne
     private Cliente cliente;
 
+    private OrderStatus status;
+
     public Order(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
         this.cliente = orderFormDto.getCliente();
@@ -45,7 +47,15 @@ public class Order {
         return cliente;
     }
 
+    public OrderStatus getStatus() {
+        return status;
+    }
+
     public void setDateOrder(LocalDateTime dateOrder) {
         this.dateOrder = dateOrder;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 }
