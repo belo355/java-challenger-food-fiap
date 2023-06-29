@@ -1,6 +1,5 @@
 package com.fiap.challenger.food.infraestruture.in;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.form.ClienteFormDto;
 import com.fiap.challenger.food.application.domain.service.RegistreClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @RestController
 public class ClienteController {

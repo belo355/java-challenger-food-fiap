@@ -24,7 +24,11 @@ public class Order {
 
     public Order(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
-        this.cliente = orderFormDto.getCliente();
+        if (orderFormDto.getCliente().getDocument().isEmpty()) {
+            this.cliente = new Cliente();
+        } else {
+            this.cliente = orderFormDto.getCliente();
+        }
     }
 
     public Long getId() {
