@@ -50,4 +50,10 @@ public class ProductoController {
     public ResponseEntity remove(@PathVariable Long id) {
         return productoService.remove(id);
     }
+
+    @PostMapping(path = "/product/checkout")
+    @Transactional
+    public ResponseEntity orderCheckoutProducts(@RequestBody ProductoFormDto productoFormDto) {
+        return productoService.checkout(productoFormDto);
+    }
 }

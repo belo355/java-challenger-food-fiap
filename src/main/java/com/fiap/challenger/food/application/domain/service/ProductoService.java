@@ -114,4 +114,13 @@ public class ProductoService {
             return new ResponseEntity<>("Produtos nao encontrados para esta categoria", HttpStatus.NO_CONTENT);
         }
     }
+
+    public ResponseEntity checkout(ProductoFormDto productoFormDto) {
+        Optional<Producto> producto = productoRepository.findByDescription(productoFormDto.getDescription());
+        if(!producto.isPresent()){
+            logger.error("Produto nao existe, checkout nao realizado!");
+        }
+        logger.error("checkout realizado para o produto: {}", productoFormDto.getDescription() );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

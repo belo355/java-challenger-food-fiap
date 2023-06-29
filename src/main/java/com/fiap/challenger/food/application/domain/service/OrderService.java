@@ -4,7 +4,6 @@ import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.application.domain.model.dto.OrderDto;
 import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
-import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
