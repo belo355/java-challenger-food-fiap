@@ -19,13 +19,22 @@ spec:
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: sua_senha_aqui
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: password
             - name: MYSQL_USER
-              value: usuario
-            - name: MYSQL_PASSWORD
-              value: senha_do_usuario
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: username
+            # - name: MYSQL_PASSWORD
+            #   value: senha_do_usuario
             - name: MYSQL_DATABASE
-              value: database_name
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: database
           ports:
             - containerPort: 3306
           volumeMounts:
