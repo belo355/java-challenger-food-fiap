@@ -55,7 +55,10 @@ http://localhost:8080/swagger-ui/index.html
    ```sh
    docker-compose up
    ```
-
+4. (Optional) for windows maybe need to add into dockerfile:
+   ```sh
+   RUN dos2unix mvnw
+   ```
 
 
 <!-- USAGE EXAMPLES -->
