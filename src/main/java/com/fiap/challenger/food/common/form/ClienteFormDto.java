@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.application.domain.model.form;
+package com.fiap.challenger.food.common.form;
 
 public class ClienteFormDto {
 
