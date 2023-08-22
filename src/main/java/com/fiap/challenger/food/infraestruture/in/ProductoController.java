@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.infraestruture.in;
 
-import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
+import com.fiap.challenger.food.common.form.ProductoFormDto;
 import com.fiap.challenger.food.application.domain.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

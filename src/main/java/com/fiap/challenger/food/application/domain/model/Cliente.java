@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.model;
 
-import com.fiap.challenger.food.application.domain.model.form.ClienteFormDto;
+import com.fiap.challenger.food.common.form.ClienteFormDto;
 import lombok.Data;
 
 import javax.persistence.Entity;

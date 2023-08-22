@@ -1,9 +1,9 @@
-package com.fiap.challenger.food.application.domain.model.dto;
+package com.fiap.challenger.food.common.dto;
 
 import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
-import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
+import com.fiap.challenger.food.common.form.OrderFormDto;
 
 import java.time.LocalDateTime;
 import java.util.List;

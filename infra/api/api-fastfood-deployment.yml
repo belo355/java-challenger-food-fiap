@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-fastfood-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-fastfood
+  template:
+    metadata:
+      labels:
+        app: app-fastfood
+    spec:
+      containers:
+      - name: <container-name-aplication>
+        image: <name-image-app-name:latest>
+        ports:
+        - containerPort: <port>
+      # Traz as variáveis de ambiente do arquivo configmap
+      env:
+      - name: MYSQL_URL
+        valueFrom:
+            configMapKeyRef:
+              name: mysqldb-config
+              key: MYSQL_URL

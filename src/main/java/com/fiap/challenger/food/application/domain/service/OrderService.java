@@ -2,8 +2,8 @@ package com.fiap.challenger.food.application.domain.service;
 
 import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
-import com.fiap.challenger.food.application.domain.model.dto.OrderDto;
-import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
+import com.fiap.challenger.food.common.dto.OrderDto;
+import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.slf4j.Logger;
@@ -30,6 +30,11 @@ public class OrderService {
     public OrderService(OrderRepository orderRepository, ProductoRepository productoRepository) {
         this.orderRepository = orderRepository;
         this.productoRepository = productoRepository;
+    }
+
+    public Order findById(Long id){
+        Optional<Order> order = orderRepository.findById(id);
+        return order.orElseGet(Order::new);
     }
 
     public ResponseEntity<List<OrderDto>> findAll() {

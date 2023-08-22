@@ -1,12 +1,13 @@
 package com.fiap.challenger.food.application.domain.model;
 
-import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
+import com.fiap.challenger.food.common.form.ProductoFormDto;
 import com.fiap.challenger.food.common.CategoryEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 public class Producto {
@@ -17,7 +18,7 @@ public class Producto {
     private String description;
     private String brand;
     private CategoryEnum category;
-    private String valor;
+    private BigDecimal valor;
 
     public Producto(ProductoFormDto productoFormDto) {
         this.description = productoFormDto.getDescription();
@@ -43,7 +44,7 @@ public class Producto {
         return category;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
@@ -59,7 +60,7 @@ public class Producto {
         this.category = category;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 }
