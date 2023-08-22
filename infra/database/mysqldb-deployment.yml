@@ -28,8 +28,11 @@ spec:
                 secretKeyRef:
                   name: mysql-credentials
                   key: username
-            # - name: MYSQL_PASSWORD
-            #   value: senha_do_usuario
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: password
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
@@ -43,4 +46,4 @@ spec:
       volumes:
         - name: mysqldb-pvc-storage
           persistentVolumeClaim:
-            claimName: mysql-pv-claim
+            claimName: mysqldb-pvc-claim

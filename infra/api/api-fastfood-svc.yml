@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: app-fastfood
+  type: NodePort
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 8080
-  type: LoadBalancer
+    port: 8080 # porta do service
+    targetPort: 8080 # porta do container
+    nodePort: 30080 # porta exposta no nó do cluster
