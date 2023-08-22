@@ -1,8 +1,8 @@
 package com.fiap.challenger.food.application.domain.service;
 
 import com.fiap.challenger.food.application.domain.model.Producto;
-import com.fiap.challenger.food.application.domain.model.dto.ProductoDto;
-import com.fiap.challenger.food.application.domain.model.form.ProductoFormDto;
+import com.fiap.challenger.food.common.dto.ProductoDto;
+import com.fiap.challenger.food.common.form.ProductoFormDto;
 import com.fiap.challenger.food.common.CategoryEnum;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.slf4j.Logger;

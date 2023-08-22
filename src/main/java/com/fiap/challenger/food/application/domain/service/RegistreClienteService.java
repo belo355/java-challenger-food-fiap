@@ -1,7 +1,7 @@
 package com.fiap.challenger.food.application.domain.service;
 
 import com.fiap.challenger.food.application.domain.model.Cliente;
-import com.fiap.challenger.food.application.domain.model.form.ClienteFormDto;
+import com.fiap.challenger.food.common.form.ClienteFormDto;
 import com.fiap.challenger.food.infraestruture.out.ClienteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

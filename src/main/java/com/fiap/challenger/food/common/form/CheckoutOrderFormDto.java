@@ -1,12 +1,11 @@
-package com.fiap.challenger.food.application.domain.model.form;
+package com.fiap.challenger.food.common.form;
 
 import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.Producto;
 
 import java.util.List;
 
-public class OrderFormDto {
-
+public class CheckoutOrderFormDto {
     private List<Producto> productoList;
 
     private Cliente cliente;
@@ -17,13 +16,5 @@ public class OrderFormDto {
 
     public Cliente getCliente() {
         return cliente;
-    }
-
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 }

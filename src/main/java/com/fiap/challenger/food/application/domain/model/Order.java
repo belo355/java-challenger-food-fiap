@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.model;
 
-import com.fiap.challenger.food.application.domain.model.form.OrderFormDto;
+import com.fiap.challenger.food.common.form.OrderFormDto;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

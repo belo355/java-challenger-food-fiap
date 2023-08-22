@@ -1,17 +1,19 @@
-package com.fiap.challenger.food.application.domain.model.form;
+package com.fiap.challenger.food.common.form;
 
 import com.fiap.challenger.food.common.CategoryEnum;
+
+import java.math.BigDecimal;
 
 public class ProductoFormDto {
 
     private String description;
     private String brand;
     private CategoryEnum category;
-    private String valor;
+    private BigDecimal valor;
 
     public ProductoFormDto(){}
 
-    public ProductoFormDto(String description, String brand, CategoryEnum category, String valor) {
+    public ProductoFormDto(String description, String brand, CategoryEnum category, BigDecimal valor) {
         this.description = description;
         this.brand = brand;
         this.category = category;
@@ -42,11 +44,11 @@ public class ProductoFormDto {
         this.category = category;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValueUnity(String valor) {
+    public void setValueUnity(BigDecimal valor) {
         this.valor = valor;
     }
 }

@@ -1,13 +1,15 @@
-package com.fiap.challenger.food.application.domain.model.dto;
+package com.fiap.challenger.food.common.dto;
 
 import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.common.CategoryEnum;
+
+import java.math.BigDecimal;
 
 public class ProductoDto {
     private String description;
     private String brand;
     private CategoryEnum category;
-    private String valor;
+    private BigDecimal valor;
 
     public ProductoDto(){}
 
@@ -43,11 +45,11 @@ public class ProductoDto {
         this.category = category;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 }
