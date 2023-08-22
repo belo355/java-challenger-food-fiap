@@ -1,17 +1,19 @@
-package com.fiap.challenger.food.application.domain.model;
+package com.fiap.challenger.food.infraestruture.repository;
 
+import com.fiap.challenger.food.application.domain.model.Cliente;
+import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table(name = "ORDERPAYMENT")
-public class Order {
+//@Entity
+//@Table(name = "ORDERPAYMENT")
+public class OrderRepository {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDateTime dateOrder;
@@ -22,9 +24,8 @@ public class Order {
     @ManyToOne
     private Cliente cliente;
 
-    public Order(OrderFormDto orderFormDto) {
+    public OrderRepository(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
-        this.dateOrder = LocalDateTime.now();
         if (orderFormDto.getCliente().getDocument().isEmpty()) {
             this.cliente = new Cliente();
         } else {
@@ -32,7 +33,7 @@ public class Order {
         }
     }
 
-    public Order(){}
+    public OrderRepository(){}
 
     public Long getId() {
         return id;
@@ -52,13 +53,5 @@ public class Order {
 
     public void setDateOrder(LocalDateTime dateOrder) {
         this.dateOrder = dateOrder;
-    }
-
-    public void setProducts(List<Producto> products) {
-        this.products = products;
-    }
-
-    public void setProducts(Producto p) {
-        this.products.add(p);
     }
 }

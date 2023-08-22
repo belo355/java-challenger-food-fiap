@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.application.domain.useCase;
+package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.dto.CheckoutDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
