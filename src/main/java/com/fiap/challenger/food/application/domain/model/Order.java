@@ -6,13 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table(name = "ORDERPAYMENT")
 public class Order {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private LocalDateTime dateOrder;
 
@@ -34,9 +28,6 @@ public class Order {
 
     public Order(){}
 
-    public Long getId() {
-        return id;
-    }
 
     public LocalDateTime getDateOrder() {
         return dateOrder;

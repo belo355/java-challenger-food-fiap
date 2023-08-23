@@ -1,9 +1,9 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
-import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.common.dto.OrderDto;
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
 import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class ListAllOrdersUseCase {
     }
 
     public ResponseEntity<List<OrderDto>> list() {
-        Iterable<Order> orders = orderRepository.findAll();
+        Iterable<OrderRepositoryDb> orders = orderRepository.findAll();
         return orderPresentation.getAllOrders(orders);
     }
 }

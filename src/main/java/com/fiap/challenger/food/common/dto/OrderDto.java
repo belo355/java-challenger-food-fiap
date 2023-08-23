@@ -4,6 +4,7 @@ import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
+import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,6 +17,12 @@ public class OrderDto {
     private Cliente cliente;
 
     public OrderDto(Order order) {
+        this.dateOrder = order.getDateOrder();
+        this.productoList = order.getProductos();
+        this.cliente = order.getCliente();
+    }
+
+    public OrderDto(OrderRepositoryDb order) {
         this.dateOrder = order.getDateOrder();
         this.productoList = order.getProductos();
         this.cliente = order.getCliente();

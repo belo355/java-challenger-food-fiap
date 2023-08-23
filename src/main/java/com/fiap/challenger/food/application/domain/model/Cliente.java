@@ -41,4 +41,8 @@ public class Cliente {
         return mail;
     }
 
+    public String getDocument(){
+        return document;
+    }
+
 }
