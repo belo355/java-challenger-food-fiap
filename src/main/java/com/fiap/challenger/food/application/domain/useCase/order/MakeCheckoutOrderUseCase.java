@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.application.domain.useCase;
+package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.dto.CheckoutDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
@@ -14,7 +14,7 @@ public class MakeCheckoutOrderUseCase {
 
     private BigDecimal totalOrderCheckout = new BigDecimal(ZERO);
 
-    private OrderPresentation orderPresentation;
+    private final OrderPresentation orderPresentation;
 
     public MakeCheckoutOrderUseCase(OrderPresentation orderPresentation) {
         this.orderPresentation = orderPresentation;
@@ -30,5 +30,4 @@ public class MakeCheckoutOrderUseCase {
             this.totalOrderCheckout = totalOrderCheckout.add(new BigDecimal(String.valueOf(p.getValor())));
         });
     }
-
 }
