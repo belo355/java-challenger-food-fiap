@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: mysql
-  name: mysqldb-loadbalancer-service
+  name: mysqldb-service
 spec:
   selector:
     app: mysqldb-deployment
@@ -11,4 +11,4 @@ spec:
   - protocol: TCP
     port: 3306
     targetPort: 3306
-  type: LoadBalancer
+  type: ClusterIP

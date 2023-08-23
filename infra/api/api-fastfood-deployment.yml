@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api-fastfood-deployment
 spec:
-  replicas: 2
+  replicas: 1 # alterar antes de submeter
   selector:
     matchLabels:
       app: app-fastfood
@@ -13,14 +13,18 @@ spec:
         app: app-fastfood
     spec:
       containers:
-      - name: <container-name-aplication>
-        image: <name-image-app-name:latest>
+      - name: fastfood
+        image: brunotsoares/fastfood:1.1
         ports:
-        - containerPort: <port>
-      # Traz as variáveis de ambiente do arquivo configmap
-      env:
-      - name: MYSQL_URL
-        valueFrom:
-            configMapKeyRef:
-              name: mysqldb-config
-              key: MYSQL_URL
+        - containerPort: 8080
+        env:
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: mysql-credentials
+                key: username
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-credentials
+                key: password
