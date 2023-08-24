@@ -1,19 +1,15 @@
 package com.fiap.challenger.food.application.domain.model;
 
 import com.fiap.challenger.food.common.form.OrderFormDto;
+import com.fiap.challenger.food.infraestruture.repository.ClienteRepositoryDb;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Order {
 
     private LocalDateTime dateOrder;
-
-    @ManyToMany(cascade=CascadeType.ALL)
     private List<Producto> products;
-
-    @ManyToOne
     private Cliente cliente;
 
     public Order(OrderFormDto orderFormDto) {

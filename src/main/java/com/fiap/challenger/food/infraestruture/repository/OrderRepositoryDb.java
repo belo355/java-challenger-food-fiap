@@ -1,6 +1,5 @@
 package com.fiap.challenger.food.infraestruture.repository;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.application.domain.model.Order;
 import com.fiap.challenger.food.application.domain.model.Producto;
 
@@ -22,16 +21,16 @@ public class OrderRepositoryDb {
     private List<Producto> products;
 
     @ManyToOne
-    private Cliente cliente;
+    private ClienteRepositoryDb cliente;
 
 
     public OrderRepositoryDb(Order order) {
         this.products = order.getProductos();
         this.dateOrder = order.getDateOrder();
         if (order.getCliente().getDocument().isEmpty()) {
-            this.cliente = new Cliente();
+            this.cliente = new ClienteRepositoryDb();
         } else {
-            this.cliente = order.getCliente();
+            this.cliente = new ClienteRepositoryDb(order.getCliente());
         }
     }
 
@@ -49,7 +48,7 @@ public class OrderRepositoryDb {
         return products;
     }
 
-    public Cliente getCliente() {
+    public ClienteRepositoryDb getCliente() {
         return cliente;
     }
 
