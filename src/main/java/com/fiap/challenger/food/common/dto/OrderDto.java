@@ -25,7 +25,11 @@ public class OrderDto {
     public OrderDto(OrderRepositoryDb order) {
         this.dateOrder = order.getDateOrder();
         this.productoList = order.getProductos();
-        this.cliente = order.getCliente();
+        this.cliente = new Cliente(
+                order.getCliente().getName(),
+                order.getCliente().getAge(),
+                order.getCliente().getMail(),
+                order.getCliente().getDocument());
     }
 
     public OrderDto(OrderFormDto orderFormDto) {

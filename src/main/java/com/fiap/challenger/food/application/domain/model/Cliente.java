@@ -1,30 +1,17 @@
 package com.fiap.challenger.food.application.domain.model;
 
 import com.fiap.challenger.food.common.form.ClienteFormDto;
-import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Data
-@Entity
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
     private int age;
     private String mail;
-
     private String document;
 
     public Cliente() {}
 
-    public Cliente(Long id, String name, int age, String mail, String document) {
-        this.id = id;
+    public Cliente(String name, int age, String mail, String document) {
         this.name = name;
         this.age = age;
         this.mail = mail;
@@ -45,4 +32,11 @@ public class Cliente {
         return document;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }

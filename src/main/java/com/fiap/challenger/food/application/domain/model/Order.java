@@ -2,24 +2,19 @@ package com.fiap.challenger.food.application.domain.model;
 
 import com.fiap.challenger.food.common.form.OrderFormDto;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Order {
 
     private LocalDateTime dateOrder;
-
-    @ManyToMany(cascade=CascadeType.ALL)
     private List<Producto> products;
-
-    @ManyToOne
     private Cliente cliente;
 
     public Order(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
         this.dateOrder = LocalDateTime.now();
-        if (orderFormDto.getCliente().getDocument().isEmpty()) {
+        if (orderFormDto.getCliente().getDocument() == null) {
             this.cliente = new Cliente();
         } else {
             this.cliente = orderFormDto.getCliente();

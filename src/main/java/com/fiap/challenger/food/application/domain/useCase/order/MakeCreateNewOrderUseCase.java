@@ -21,10 +21,9 @@ public class MakeCreateNewOrderUseCase {
         this.orderPresentation = orderPresentation;
     }
     public ResponseEntity<Long> create(OrderFormDto orderFormDto) {
-        //TODO: RETIRAR A NECESSIDADE DE UM CLIENTE PARA CRIAR UM PEDIDO
         Order order = new Order(orderFormDto);
         if (order.getProductos().isEmpty()) {
-            logger.info("pedido nao pode ser criado sem produtos selecionados");
+            logger.info("Pedido nao pode ser criado sem produtos selecionados");
             return ResponseEntity.noContent().build();
         } else {
             return orderPresentation.create(order);
