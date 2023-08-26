@@ -1,6 +1,5 @@
 package com.fiap.challenger.food.infraestruture.out;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
 import com.fiap.challenger.food.infraestruture.repository.ClienteRepositoryDb;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

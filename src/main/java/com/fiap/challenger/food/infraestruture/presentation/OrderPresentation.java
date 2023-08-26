@@ -33,7 +33,8 @@ public class OrderPresentation {
         return ResponseEntity.ok(checkoutDto);
     }
 
-    public ResponseEntity<List<OrderDto>> getAllOrders(Iterable<OrderRepositoryDb> orders) {
+    public ResponseEntity<List<OrderDto>> findAll() {
+        Iterable<OrderRepositoryDb> orders = orderRepository.findAll();
         List<OrderDto> orderDtoList = new ArrayList<>();
         orders.forEach(order -> {
             OrderDto dto = new OrderDto(order);

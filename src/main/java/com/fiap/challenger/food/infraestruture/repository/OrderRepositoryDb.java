@@ -20,14 +20,14 @@ public class OrderRepositoryDb {
     @ManyToMany(cascade=CascadeType.ALL)
     private List<Producto> products;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private ClienteRepositoryDb cliente;
 
 
     public OrderRepositoryDb(Order order) {
         this.products = order.getProductos();
         this.dateOrder = order.getDateOrder();
-        if (order.getCliente().getDocument().isEmpty()) {
+        if (order.getCliente().getDocument() == null) {
             this.cliente = new ClienteRepositoryDb();
         } else {
             this.cliente = new ClienteRepositoryDb(order.getCliente());
