@@ -1,16 +1,15 @@
-package com.fiap.challenger.food.application.domain.model;
+package com.fiap.challenger.food.infraestruture.repository;
 
-import com.fiap.challenger.food.common.form.ProductoFormDto;
+import com.fiap.challenger.food.application.domain.entities.Producto;
 import com.fiap.challenger.food.common.CategoryEnum;
+import com.fiap.challenger.food.common.form.ProductoFormDto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class Producto {
+@Table(name = "PRODUCTO")
+public class ProductoRepositoryDb {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +19,22 @@ public class Producto {
     private CategoryEnum category;
     private BigDecimal valor;
 
-    public Producto(ProductoFormDto productoFormDto) {
+    public ProductoRepositoryDb(){}
+
+    public ProductoRepositoryDb(ProductoFormDto productoFormDto) {
         this.description = productoFormDto.getDescription();
         this.brand = productoFormDto.getBrand();
         this.category = productoFormDto.getCategory();
         this.valor = productoFormDto.getValor();
     }
 
-    public Producto(){}
+    public ProductoRepositoryDb(Producto producto) {
+        this.description = producto.getDescription();
+        this.brand = producto.getBrand();
+        this.category = producto.getCategory();
+        this.valor = producto.getValor();
+    }
+
     public Long getId() {
         return id;
     }

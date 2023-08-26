@@ -1,7 +1,7 @@
 package com.fiap.challenger.food.common.dto;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
-import com.fiap.challenger.food.application.domain.model.Producto;
+import com.fiap.challenger.food.application.domain.entities.Cliente;
+import com.fiap.challenger.food.application.domain.entities.Producto;
 
 import java.math.BigDecimal;
 import java.util.List;

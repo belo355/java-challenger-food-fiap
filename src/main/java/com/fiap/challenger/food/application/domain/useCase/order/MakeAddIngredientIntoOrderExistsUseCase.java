@@ -1,10 +1,10 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
-import com.fiap.challenger.food.application.domain.model.Producto;
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
+import com.fiap.challenger.food.infraestruture.repository.ProductoRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class MakeAddIngredientIntoOrderExistsUseCase {
     }
 
     public ResponseEntity addIngredient(Long orderId, Long ingredientId) {
-        Optional<Producto> productoIngredient = productoRepository.findById(ingredientId);
+        Optional<ProductoRepositoryDb> productoIngredient = productoRepository.findById(ingredientId);
         Optional<OrderRepositoryDb> order = orderRepository.findById(orderId);
         if (productoIngredient.isPresent() && order.isPresent()) {
             order.get().setProducts(productoIngredient.get());

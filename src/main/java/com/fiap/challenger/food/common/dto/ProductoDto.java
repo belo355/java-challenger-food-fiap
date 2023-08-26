@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.common.dto;
 
-import com.fiap.challenger.food.application.domain.model.Producto;
+import com.fiap.challenger.food.application.domain.entities.Producto;
 import com.fiap.challenger.food.common.CategoryEnum;
 
 import java.math.BigDecimal;

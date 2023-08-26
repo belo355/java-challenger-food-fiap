@@ -1,10 +1,9 @@
 package com.fiap.challenger.food.common.dto;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
-import com.fiap.challenger.food.application.domain.model.Order;
-import com.fiap.challenger.food.application.domain.model.Producto;
+import com.fiap.challenger.food.application.domain.entities.Cliente;
+import com.fiap.challenger.food.application.domain.entities.Order;
+import com.fiap.challenger.food.application.domain.entities.Producto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
-import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,16 +19,6 @@ public class OrderDto {
         this.dateOrder = order.getDateOrder();
         this.productoList = order.getProductos();
         this.cliente = order.getCliente();
-    }
-
-    public OrderDto(OrderRepositoryDb order) {
-        this.dateOrder = order.getDateOrder();
-        this.productoList = order.getProductos();
-        this.cliente = new Cliente(
-                order.getCliente().getName(),
-                order.getCliente().getAge(),
-                order.getCliente().getMail(),
-                order.getCliente().getDocument());
     }
 
     public OrderDto(OrderFormDto orderFormDto) {

@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.infraestruture.presentation;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
+import com.fiap.challenger.food.application.domain.entities.Cliente;
 import com.fiap.challenger.food.infraestruture.out.ClienteRepository;
 import com.fiap.challenger.food.infraestruture.repository.ClienteRepositoryDb;
 import org.slf4j.Logger;
