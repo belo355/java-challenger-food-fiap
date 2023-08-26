@@ -1,8 +1,7 @@
 package com.fiap.challenger.food.infraestruture.repository;
 
-import com.fiap.challenger.food.application.domain.model.Cliente;
+import com.fiap.challenger.food.application.domain.entities.Cliente;
 import com.fiap.challenger.food.common.form.ClienteFormDto;
-import lombok.Data;
 
 import javax.persistence.*;
 

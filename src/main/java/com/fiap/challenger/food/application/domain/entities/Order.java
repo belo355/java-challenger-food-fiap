@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.application.domain.model;
+package com.fiap.challenger.food.application.domain.entities;
 
 import com.fiap.challenger.food.common.form.OrderFormDto;
 
@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Order {
-
     private LocalDateTime dateOrder;
     private List<Producto> products;
     private Cliente cliente;
@@ -23,7 +22,6 @@ public class Order {
 
     public Order(){}
 
-
     public LocalDateTime getDateOrder() {
         return dateOrder;
     }
@@ -36,15 +34,4 @@ public class Order {
         return cliente;
     }
 
-    public void setDateOrder(LocalDateTime dateOrder) {
-        this.dateOrder = dateOrder;
-    }
-
-    public void setProducts(List<Producto> products) {
-        this.products = products;
-    }
-
-    public void setProducts(Producto p) {
-        this.products.add(p);
-    }
 }

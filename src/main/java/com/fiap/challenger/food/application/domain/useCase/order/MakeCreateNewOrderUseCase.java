@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
-import com.fiap.challenger.food.application.domain.model.Order;
+import com.fiap.challenger.food.application.domain.entities.Order;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
 import org.slf4j.Logger;
