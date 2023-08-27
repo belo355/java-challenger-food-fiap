@@ -1,12 +1,11 @@
 package com.fiap.challenger.food.infraestruture.in;
 
-import com.fiap.challenger.food.application.domain.useCase.order.MakeAddIngredientIntoOrderExistsUseCase;
-import com.fiap.challenger.food.application.domain.useCase.order.MakeCreateNewOrderUseCase;
+import com.fiap.challenger.food.application.domain.useCase.order.*;
 import com.fiap.challenger.food.common.dto.CheckoutDto;
 import com.fiap.challenger.food.common.dto.OrderDto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
-import com.fiap.challenger.food.application.domain.useCase.order.MakeCheckoutOrderUseCase;
+import com.fiap.challenger.food.common.form.UpdateStatusOrderFormDto;
 import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,15 +20,21 @@ public class OrderController {
     private final MakeCheckoutOrderUseCase makeCheckoutOrderCaseUse;
     private final MakeCreateNewOrderUseCase makeCreateNewOrderUseCase;
     private final MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase;
+    private final MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase;
+    private final MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase;
     private final OrderPresentation orderPresentation;
 
     @Autowired
     public OrderController(MakeCheckoutOrderUseCase makeCheckoutOrderCaseUse,
                            MakeCreateNewOrderUseCase makeCreateNewOrderUseCase,
-                           MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase, OrderPresentation orderPresentation) {
+                           MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase,
+                           MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase,
+                           MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase, OrderPresentation orderPresentation) {
         this.makeCheckoutOrderCaseUse = makeCheckoutOrderCaseUse;
         this.makeCreateNewOrderUseCase = makeCreateNewOrderUseCase;
         this.makeAddIngredientIntoOrderExistsUseCase = makeAddIngredientIntoOrderExistsUseCase;
+        this.makeListAllOrdersByStatusUseCase = makeListAllOrdersByStatusUseCase;
+        this.makeUpdateStatusOrderExistingUseCase = makeUpdateStatusOrderExistingUseCase;
         this.orderPresentation = orderPresentation;
     }
 
@@ -55,6 +60,18 @@ public class OrderController {
     @Transactional
     public ResponseEntity<CheckoutDto> checkout(@RequestBody CheckoutOrderFormDto resumeOrder) {
         return makeCheckoutOrderCaseUse.checkout(resumeOrder);
+    }
+
+    @GetMapping(path = "/order/status/{status}")
+    @Transactional
+    public ResponseEntity listAllByStatusOrder(@PathVariable String status) {
+        return makeListAllOrdersByStatusUseCase.findByStatus(status);
+    }
+
+    @PostMapping(path = "/order/status/update")
+    @Transactional
+    public ResponseEntity statusUpdate(@RequestBody UpdateStatusOrderFormDto updateStatusOrderFormDto) {
+        return makeUpdateStatusOrderExistingUseCase.statusUpdate(updateStatusOrderFormDto);
     }
 
 }

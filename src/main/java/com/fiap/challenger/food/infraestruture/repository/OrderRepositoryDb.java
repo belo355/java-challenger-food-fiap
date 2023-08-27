@@ -2,6 +2,7 @@ package com.fiap.challenger.food.infraestruture.repository;
 
 import com.fiap.challenger.food.application.domain.entities.Order;
 import com.fiap.challenger.food.application.domain.entities.Producto;
+import com.fiap.challenger.food.common.StatusOrderEnum;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,6 +18,8 @@ public class OrderRepositoryDb {
     private Long id;
 
     private LocalDateTime dateOrder;
+
+    private StatusOrderEnum statusOrderEnum;
 
     @ManyToMany(cascade=CascadeType.ALL)
     private List<ProductoRepositoryDb> products;
@@ -64,5 +67,13 @@ public class OrderRepositoryDb {
             productoRepositoryDbList.add(productoRepositoryDb);
         });
         return productoRepositoryDbList;
+    }
+
+    public StatusOrderEnum getStatusOrderEnum() {
+        return statusOrderEnum;
+    }
+
+    public void setStatusOrderEnum(StatusOrderEnum statusOrderEnum) {
+        this.statusOrderEnum = statusOrderEnum;
     }
 }
