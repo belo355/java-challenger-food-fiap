@@ -1,5 +1,6 @@
 package com.fiap.challenger.food.application.domain.entities;
 
+import com.fiap.challenger.food.common.StatusOrderEnum;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ public class Order {
     private LocalDateTime dateOrder;
     private List<Producto> products;
     private Cliente cliente;
+    private StatusOrderEnum statusOrderEnum;
 
     public Order(OrderFormDto orderFormDto) {
         this.products = orderFormDto.getProductoList();
