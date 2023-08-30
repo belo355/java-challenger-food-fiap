@@ -85,7 +85,8 @@ http://localhost:8080/swagger-ui/index.html
     "document": "12345678910"
 }'
    ```
-![img_4.png](img_4.png)
+![image](https://github.com/belo355/java-challenger-food-fiap/assets/42159611/1a3fc509-28bd-442e-b6c5-e14eac071e3c)
+
 
 - [x] Criação de pedidos 
   - Para criação do pedido nao fica obrigatorio o uso da estrutura de clientes, exemplo a seguir: 
@@ -110,7 +111,8 @@ curl --location 'http://localhost:8080/order/create' \
     }
 }'
    ```
-![img_2.png](img_2.png)
+![image](https://github.com/belo355/java-challenger-food-fiap/assets/42159611/5c01fcdb-b41f-4603-83e7-7350b00e436d)
+
 
 -- criação de pedido sem cliente
  ```sh
