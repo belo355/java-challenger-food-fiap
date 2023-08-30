@@ -1,6 +1,5 @@
 
-<!-- ABOUT THE PROJECT -->
-## Challenger POS-TECH 
+# Challenger POS-TECH 
 
 ## 💻 Projeto
 Projeto para desenvolvimento de sistema de fast food, para apoio a uma lanchonete de baiiro que está expandindo suas operacoes devido seu grande sucesso. 
@@ -15,7 +14,7 @@ Entrega parte 1 (APIs):
 * Lista de pedidos 
   ```
 
-Entrega parte 2 (APIs):
+Entrega parte 2 (APIs e Infraestrutura):
   ```sh
 * Configuração de infra escalável e orquestrada com k8s
 * Refatoração da app, aplicando conceitos de Clean Architecture
@@ -24,7 +23,7 @@ Entrega parte 2 (APIs):
   * Listagem de pedidos de forma ordenada (data_chegada e status_pedido)
   ```
 
-## 🔖 Preparando o ambiente
+## 🔖 Infraestrutura
 
 ### Built With
 
