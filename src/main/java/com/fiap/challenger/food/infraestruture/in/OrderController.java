@@ -22,6 +22,7 @@ public class OrderController {
     private final MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase;
     private final MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase;
     private final MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase;
+    private final MakeListAllOrdersInDecreasingForStatusOrderUseCase makeListAllOrdersInDecreasingForStatusOrderUseCase;
     private final OrderPresentation orderPresentation;
 
     @Autowired
@@ -29,19 +30,20 @@ public class OrderController {
                            MakeCreateNewOrderUseCase makeCreateNewOrderUseCase,
                            MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase,
                            MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase,
-                           MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase, OrderPresentation orderPresentation) {
+                           MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase, MakeListAllOrdersInDecreasingForStatusOrderUseCase makeListAllOrdersInDecreasingForStatusOrderUseCase, OrderPresentation orderPresentation) {
         this.makeCheckoutOrderCaseUse = makeCheckoutOrderCaseUse;
         this.makeCreateNewOrderUseCase = makeCreateNewOrderUseCase;
         this.makeAddIngredientIntoOrderExistsUseCase = makeAddIngredientIntoOrderExistsUseCase;
         this.makeListAllOrdersByStatusUseCase = makeListAllOrdersByStatusUseCase;
         this.makeUpdateStatusOrderExistingUseCase = makeUpdateStatusOrderExistingUseCase;
+        this.makeListAllOrdersInDecreasingForStatusOrderUseCase = makeListAllOrdersInDecreasingForStatusOrderUseCase;
         this.orderPresentation = orderPresentation;
     }
 
     @GetMapping(path = "/order")
     @Transactional
     public ResponseEntity<List<OrderDto>> findAll() {
-        return orderPresentation.findAll();
+        return makeListAllOrdersInDecreasingForStatusOrderUseCase.findAll();
     }
 
     @PostMapping(path = "/order/create")
