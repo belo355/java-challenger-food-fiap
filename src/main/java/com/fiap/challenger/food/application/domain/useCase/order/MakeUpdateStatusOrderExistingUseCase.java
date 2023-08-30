@@ -35,7 +35,7 @@ public class MakeUpdateStatusOrderExistingUseCase {
             return new ResponseEntity<>(orderRepositoryDb, HttpStatus.NO_CONTENT);
         }
 
-        if(isValidUpdateStatus(orderRepositoryDb, statusOrderEnum)){ //todo atualizar regra pra deixar atualizar
+        if(isValidUpdateStatus(orderRepositoryDb, statusOrderEnum)){ //todo melhorar regra de atualizacao entre status
             return orderPresentation.updateStatusOrder(orderRepositoryDb.getId(), statusOrderEnum);
         }
         else{
