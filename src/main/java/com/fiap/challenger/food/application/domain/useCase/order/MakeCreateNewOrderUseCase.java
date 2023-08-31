@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.application.domain.entities.Order;
 import com.fiap.challenger.food.common.form.OrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

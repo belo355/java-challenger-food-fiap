@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.infraestruture.presentation;
+package com.fiap.challenger.food.infraestruture.gateway;
 
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

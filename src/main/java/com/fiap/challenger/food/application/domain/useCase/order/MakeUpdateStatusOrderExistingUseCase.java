@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.StatusOrderEnum;
 import com.fiap.challenger.food.common.form.UpdateStatusOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

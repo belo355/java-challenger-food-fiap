@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.infraestruture.presentation;
+package com.fiap.challenger.food.infraestruture.gateway;
 
 import com.fiap.challenger.food.application.domain.entities.Cliente;
 import com.fiap.challenger.food.application.domain.entities.Order;

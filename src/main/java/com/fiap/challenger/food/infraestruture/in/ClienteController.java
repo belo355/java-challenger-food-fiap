@@ -2,7 +2,7 @@ package com.fiap.challenger.food.infraestruture.in;
 
 import com.fiap.challenger.food.application.domain.useCase.cliente.MakeRegistreNewClientUseCase;
 import com.fiap.challenger.food.common.form.ClienteFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.ClienteGateway;
+import com.fiap.challenger.food.infraestruture.gateway.ClienteGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

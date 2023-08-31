@@ -3,7 +3,7 @@ package com.fiap.challenger.food.application.domain.useCase.cliente;
 import com.fiap.challenger.food.application.domain.entities.Cliente;
 import com.fiap.challenger.food.common.form.ClienteFormDto;
 import com.fiap.challenger.food.infraestruture.out.ClienteRepository;
-import com.fiap.challenger.food.infraestruture.presentation.ClienteGateway;
+import com.fiap.challenger.food.infraestruture.gateway.ClienteGateway;
 import com.fiap.challenger.food.infraestruture.repository.ClienteRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
