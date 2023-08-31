@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.dto.CheckoutDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

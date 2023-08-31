@@ -5,7 +5,7 @@ import com.fiap.challenger.food.application.domain.useCase.producto.MakeListProd
 import com.fiap.challenger.food.application.domain.useCase.producto.MakeRemoveProductoExistingUseCase;
 import com.fiap.challenger.food.application.domain.useCase.producto.MakeUpdateProductoExistingUseCase;
 import com.fiap.challenger.food.common.form.ProductoFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.ProductoGateway;
+import com.fiap.challenger.food.infraestruture.gateway.ProductoGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

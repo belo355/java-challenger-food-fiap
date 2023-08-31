@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.infraestruture.out.OrderRepository;
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
-import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import com.fiap.challenger.food.infraestruture.repository.ProductoRepositoryDb;
 import org.slf4j.Logger;

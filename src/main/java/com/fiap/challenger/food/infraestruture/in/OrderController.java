@@ -6,7 +6,7 @@ import com.fiap.challenger.food.common.dto.OrderDto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
 import com.fiap.challenger.food.common.form.UpdateStatusOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
