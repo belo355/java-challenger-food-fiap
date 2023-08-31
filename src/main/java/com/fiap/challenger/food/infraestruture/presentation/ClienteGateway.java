@@ -13,14 +13,14 @@ import org.springframework.stereotype.Controller;
 import java.util.Optional;
 
 @Controller
-public class ClientePresentation {
+public class ClienteGateway {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClientePresentation.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClienteGateway.class);
 
     private final ClienteRepository clienteRepository;
 
     @Autowired
-    public ClientePresentation(ClienteRepository clienteRepository){
+    public ClienteGateway(ClienteRepository clienteRepository){
         this.clienteRepository = clienteRepository;
     }
     public ResponseEntity<Long> registre(Cliente cliente) {

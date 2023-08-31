@@ -141,3 +141,33 @@ curl --location 'http://localhost:8080/order' \
 ![img_1.png](img_1.png)
 
 
+- [x] Fake Checkout
+  - retorna o resumo de produtos listados, e total geral previo do pedido. 
+ ```sh
+curl --location 'http://localhost:8080/order/checkout' \
+--header 'Content-Type: application/json' \
+--data '{
+    "productoList": [
+        {
+            "description": "prod1",
+            "brand": "qualquer",
+            "category": "BEBIDAS",
+            "valor": 10
+        },
+        {
+            "description": "prod2",
+            "brand": "qualquer2",
+            "category": "BEBIDAS",
+            "valor": 20
+        }
+    ],
+    "cliente": {
+        "id": 0,
+        "name": "String",
+        "age": 0,
+        "mail": "String",
+        "document": "String"
+    }
+}'
+   ```
+![img_5.png](img_5.png)

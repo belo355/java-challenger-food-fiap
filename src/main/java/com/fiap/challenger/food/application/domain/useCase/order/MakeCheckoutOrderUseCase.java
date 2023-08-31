@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.dto.CheckoutDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.presentation.OrderGateway;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +14,15 @@ public class MakeCheckoutOrderUseCase {
 
     private BigDecimal totalOrderCheckout = new BigDecimal(ZERO);
 
-    private final OrderPresentation orderPresentation;
+    private final OrderGateway gateway;
 
-    public MakeCheckoutOrderUseCase(OrderPresentation orderPresentation) {
-        this.orderPresentation = orderPresentation;
+    public MakeCheckoutOrderUseCase(OrderGateway orderGateway) {
+        this.gateway = orderGateway;
     }
 
     public ResponseEntity<CheckoutDto> checkout(CheckoutOrderFormDto checkoutOrderFormDto) {
         calcTotalCostOrder(checkoutOrderFormDto);
-        return orderPresentation.makeCheckoutOrder(checkoutOrderFormDto.getProductoList(), checkoutOrderFormDto.getCliente(), this.totalOrderCheckout);
+        return gateway.makeCheckoutOrder(checkoutOrderFormDto.getProductoList(), checkoutOrderFormDto.getCliente(), this.totalOrderCheckout);
     }
 
     private void calcTotalCostOrder(CheckoutOrderFormDto checkoutOrderFormDto) {
