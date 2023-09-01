@@ -56,7 +56,7 @@ Entrega parte 2 (APIs e Infraestrutura):
    ```sh
    docker-compose up
    ```
-4. (Optional) for windows maybe need to add into dockerfile:
+4. (Optional) for windows maybe need to add this command before RUN ./mvnw into dockerfile :
    ```sh
    RUN dos2unix mvnw
    ```
