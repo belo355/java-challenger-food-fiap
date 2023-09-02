@@ -64,28 +64,28 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
   minikube start
   ```
   
-
-
 ### Installation
+
 
 **Parte 1**
 
-  1. Clone the repo
-     ```sh
-     git clone https://github.com/belo355/java-challenger-food-fiap.git
-     ```
-  2. Build docker images
-     ```sh
-     docker-compose build --no-cache --pull
-     ```
-  3. Run docker app
-     ```sh
-     docker-compose up
-     ```
-  4. (Optional) for windows maybe need to add into dockerfile:
-     ```sh
-     RUN dos2unix mvnw
+1. Clone the repo
+   ```sh
+   git clone https://github.com/belo355/java-challenger-food-fiap.git
    ```
+2. Build docker images
+   ```sh
+   docker-compose build --no-cache --pull
+   ```
+3. Run docker app
+   ```sh
+   docker-compose up
+   ```
+4. (Optional) for windows maybe need to add this command before RUN ./mvnw into dockerfile :
+   ```sh
+   RUN dos2unix mvnw
+   ```
+
 **Parte 2**
 
   1. Acessar o diretório /infra, onde a estrutura do k8s foi armazenada
@@ -192,3 +192,33 @@ curl --location 'http://127.0.0.1:{PORT}/order' \
 ![img_1.png](img_1.png)
 
 
+- [x] Fake Checkout
+  - retorna o resumo de produtos listados, e total geral previo do pedido. 
+ ```sh
+curl --location 'http://localhost:8080/order/checkout' \
+--header 'Content-Type: application/json' \
+--data '{
+    "productoList": [
+        {
+            "description": "prod1",
+            "brand": "qualquer",
+            "category": "BEBIDAS",
+            "valor": 10
+        },
+        {
+            "description": "prod2",
+            "brand": "qualquer2",
+            "category": "BEBIDAS",
+            "valor": 20
+        }
+    ],
+    "cliente": {
+        "id": 0,
+        "name": "String",
+        "age": 0,
+        "mail": "String",
+        "document": "String"
+    }
+}'
+   ```
+![img_5.png](img_5.png)

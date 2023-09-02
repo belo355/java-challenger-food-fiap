@@ -2,7 +2,7 @@ package com.fiap.challenger.food.infraestruture.in;
 
 import com.fiap.challenger.food.application.domain.useCase.cliente.MakeRegistreNewClientUseCase;
 import com.fiap.challenger.food.common.form.ClienteFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.ClientePresentation;
+import com.fiap.challenger.food.infraestruture.gateway.ClienteGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,13 +16,13 @@ import javax.transaction.Transactional;
 public class ClienteController {
 
     private final MakeRegistreNewClientUseCase makeRegistreNewClientUseCase;
-    private final ClientePresentation clientePresentation;
+    private final ClienteGateway gateway;
 
     @Autowired
     public ClienteController(MakeRegistreNewClientUseCase makeRegistreNewClientUseCase,
-                             ClientePresentation clientePresentation) {
+                             ClienteGateway clienteGateway) {
         this.makeRegistreNewClientUseCase = makeRegistreNewClientUseCase;
-        this.clientePresentation = clientePresentation;
+        this.gateway = clienteGateway;
     }
 
     @PostMapping(path = "/cliente/registre")
@@ -34,6 +34,6 @@ public class ClienteController {
     @GetMapping(path = "/cliente")
     @Transactional
     public ResponseEntity findAll() {
-        return clientePresentation.findAll();
+        return gateway.findAll();
     }
 }

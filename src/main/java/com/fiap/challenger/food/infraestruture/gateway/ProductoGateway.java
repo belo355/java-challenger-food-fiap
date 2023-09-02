@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.infraestruture.presentation;
+package com.fiap.challenger.food.infraestruture.gateway;
 
 import com.fiap.challenger.food.infraestruture.out.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ProductoPresentation {
+public class ProductoGateway {
 
     private final ProductoRepository productoRepository;
 
     @Autowired
-    public ProductoPresentation(ProductoRepository productoRepository) {
+    public ProductoGateway(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
     }
 

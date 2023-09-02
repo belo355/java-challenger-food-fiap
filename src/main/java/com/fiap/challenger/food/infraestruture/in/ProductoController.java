@@ -5,7 +5,7 @@ import com.fiap.challenger.food.application.domain.useCase.producto.MakeListProd
 import com.fiap.challenger.food.application.domain.useCase.producto.MakeRemoveProductoExistingUseCase;
 import com.fiap.challenger.food.application.domain.useCase.producto.MakeUpdateProductoExistingUseCase;
 import com.fiap.challenger.food.common.form.ProductoFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.ProductoPresentation;
+import com.fiap.challenger.food.infraestruture.gateway.ProductoGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,15 +20,15 @@ public class ProductoController {
     private final MakeUpdateProductoExistingUseCase makeUpdateProductoExistingUseCase;
     private final MakeRemoveProductoExistingUseCase makeRemoveProductoExistingUseCase;
     private final MakeListProductsByCategoryUseCase makeListProductsByCategoryUseCase;
-    private final ProductoPresentation productoPresentation;
+    private final ProductoGateway productoGateway;
 
     @Autowired
-    public ProductoController(MakeCreateNewProductoUseCase makeCreateNewProductoUseCase, MakeUpdateProductoExistingUseCase makeUpdateProductoExistingUseCase, MakeRemoveProductoExistingUseCase makeRemoveProductoExistingUseCase, MakeListProductsByCategoryUseCase makeListProductsByCategoryUseCase, ProductoPresentation productoPresentation){
+    public ProductoController(MakeCreateNewProductoUseCase makeCreateNewProductoUseCase, MakeUpdateProductoExistingUseCase makeUpdateProductoExistingUseCase, MakeRemoveProductoExistingUseCase makeRemoveProductoExistingUseCase, MakeListProductsByCategoryUseCase makeListProductsByCategoryUseCase, ProductoGateway productoGateway){
         this.makeCreateNewProductoUseCase = makeCreateNewProductoUseCase;
         this.makeUpdateProductoExistingUseCase = makeUpdateProductoExistingUseCase;
         this.makeRemoveProductoExistingUseCase = makeRemoveProductoExistingUseCase;
         this.makeListProductsByCategoryUseCase = makeListProductsByCategoryUseCase;
-        this.productoPresentation = productoPresentation;
+        this.productoGateway = productoGateway;
     }
 
     @PostMapping(path = "/product/create")
@@ -46,7 +46,7 @@ public class ProductoController {
     @GetMapping(path = "/product")
     @Transactional
     public ResponseEntity findAll() {
-        return productoPresentation.findAll();
+        return productoGateway.findAll();
     }
 
 

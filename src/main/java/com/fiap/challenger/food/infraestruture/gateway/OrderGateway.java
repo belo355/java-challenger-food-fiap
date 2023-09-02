@@ -1,4 +1,4 @@
-package com.fiap.challenger.food.infraestruture.presentation;
+package com.fiap.challenger.food.infraestruture.gateway;
 
 import com.fiap.challenger.food.application.domain.entities.Cliente;
 import com.fiap.challenger.food.application.domain.entities.Order;
@@ -19,13 +19,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class OrderPresentation {
+public class OrderGateway {
 
     private final OrderRepository orderRepository;
-    private static final Logger logger = LoggerFactory.getLogger(OrderPresentation.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderGateway.class);
 
     @Autowired
-    public OrderPresentation(OrderRepository orderRepository){
+    public OrderGateway(OrderRepository orderRepository){
         this.orderRepository = orderRepository;
     }
     public ResponseEntity<CheckoutDto> makeCheckoutOrder(List<Producto> productoList, Cliente cliente, BigDecimal costTotalOrder){

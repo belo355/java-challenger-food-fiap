@@ -6,7 +6,7 @@ import com.fiap.challenger.food.common.dto.OrderDto;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.common.form.CheckoutOrderFormDto;
 import com.fiap.challenger.food.common.form.UpdateStatusOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,21 +23,19 @@ public class OrderController {
     private final MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase;
     private final MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase;
     private final MakeListAllOrdersInDecreasingForStatusOrderUseCase makeListAllOrdersInDecreasingForStatusOrderUseCase;
-    private final OrderPresentation orderPresentation;
 
     @Autowired
     public OrderController(MakeCheckoutOrderUseCase makeCheckoutOrderCaseUse,
                            MakeCreateNewOrderUseCase makeCreateNewOrderUseCase,
                            MakeAddIngredientIntoOrderExistsUseCase makeAddIngredientIntoOrderExistsUseCase,
                            MakeListAllOrdersByStatusUseCase makeListAllOrdersByStatusUseCase,
-                           MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase, MakeListAllOrdersInDecreasingForStatusOrderUseCase makeListAllOrdersInDecreasingForStatusOrderUseCase, OrderPresentation orderPresentation) {
+                           MakeUpdateStatusOrderExistingUseCase makeUpdateStatusOrderExistingUseCase, MakeListAllOrdersInDecreasingForStatusOrderUseCase makeListAllOrdersInDecreasingForStatusOrderUseCase, OrderGateway orderGateway) {
         this.makeCheckoutOrderCaseUse = makeCheckoutOrderCaseUse;
         this.makeCreateNewOrderUseCase = makeCreateNewOrderUseCase;
         this.makeAddIngredientIntoOrderExistsUseCase = makeAddIngredientIntoOrderExistsUseCase;
         this.makeListAllOrdersByStatusUseCase = makeListAllOrdersByStatusUseCase;
         this.makeUpdateStatusOrderExistingUseCase = makeUpdateStatusOrderExistingUseCase;
         this.makeListAllOrdersInDecreasingForStatusOrderUseCase = makeListAllOrdersInDecreasingForStatusOrderUseCase;
-        this.orderPresentation = orderPresentation;
     }
 
     @GetMapping(path = "/order")

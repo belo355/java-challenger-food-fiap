@@ -1,7 +1,7 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.StatusOrderEnum;
-import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,18 +15,17 @@ import java.util.List;
 @Service
 public class MakeListAllOrdersByStatusUseCase {
 
-    private final OrderPresentation orderPresentation;
+    private final OrderGateway gateway;
     private static final Logger logger = LoggerFactory.getLogger(MakeListAllOrdersByStatusUseCase.class);
 
     @Autowired
-    public MakeListAllOrdersByStatusUseCase(OrderPresentation orderPresentation) {
-        this.orderPresentation = orderPresentation;
+    public MakeListAllOrdersByStatusUseCase(OrderGateway orderGateway) {
+        this.gateway = orderGateway;
     }
-
 
     public ResponseEntity findByStatus(String status) {
         StatusOrderEnum statusOrderEnum = StatusOrderEnum.valueOf(status.toUpperCase());
-        List<OrderRepositoryDb> orders = orderPresentation.findByStatus(statusOrderEnum);
+        List<OrderRepositoryDb> orders = gateway.findByStatus(statusOrderEnum);
         if (!orders.isEmpty()) {
             return new ResponseEntity<>(orders, HttpStatus.OK);
         } else {

@@ -1,6 +1,6 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
-import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,16 +13,16 @@ import java.util.*;
 
 @Service
 public class MakeListAllOrdersInDecreasingForStatusOrderUseCase {
-    private final OrderPresentation orderPresentation;
+    private final OrderGateway gateway;
     private static final Logger logger = LoggerFactory.getLogger(MakeListAllOrdersInDecreasingForStatusOrderUseCase.class);
 
     @Autowired
-    public MakeListAllOrdersInDecreasingForStatusOrderUseCase(OrderPresentation orderPresentation) {
-        this.orderPresentation = orderPresentation;
+    public MakeListAllOrdersInDecreasingForStatusOrderUseCase(OrderGateway orderGateway) {
+        this.gateway = orderGateway;
     }
 
     public ResponseEntity findAll() {
-        List<OrderRepositoryDb> orders = orderPresentation.findAll();
+        List<OrderRepositoryDb> orders = gateway.findAll();
         orderListforDateReceive(orders);
         orderListforStatusOrder(orders);
         return new ResponseEntity<>(orders, HttpStatus.OK);

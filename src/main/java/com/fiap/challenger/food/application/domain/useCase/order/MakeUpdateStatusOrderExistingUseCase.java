@@ -2,7 +2,7 @@ package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.common.StatusOrderEnum;
 import com.fiap.challenger.food.common.form.UpdateStatusOrderFormDto;
-import com.fiap.challenger.food.infraestruture.presentation.OrderPresentation;
+import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
 import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MakeUpdateStatusOrderExistingUseCase {
-    private final OrderPresentation orderPresentation;
+    private final OrderGateway gateway;
     private static final Logger logger = LoggerFactory.getLogger(MakeUpdateStatusOrderExistingUseCase.class);
 
     @Autowired
-    public MakeUpdateStatusOrderExistingUseCase(OrderPresentation orderPresentation) {
-        this.orderPresentation = orderPresentation;
+    public MakeUpdateStatusOrderExistingUseCase(OrderGateway orderGateway) {
+        this.gateway = orderGateway;
     }
 
     public ResponseEntity statusUpdate(UpdateStatusOrderFormDto updateStatusOrderFormDto) {
@@ -29,14 +29,14 @@ public class MakeUpdateStatusOrderExistingUseCase {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        OrderRepositoryDb orderRepositoryDb = orderPresentation.findbyId(updateStatusOrderFormDto.getIdOrder());
+        OrderRepositoryDb orderRepositoryDb = gateway.findbyId(updateStatusOrderFormDto.getIdOrder());
         if(orderRepositoryDb.getId() == null){
             logger.info("Pedido informado nao existe");
             return new ResponseEntity<>(orderRepositoryDb, HttpStatus.NO_CONTENT);
         }
 
         if(isValidUpdateStatus(orderRepositoryDb, statusOrderEnum)){ //todo melhorar regra de atualizacao entre status
-            return orderPresentation.updateStatusOrder(orderRepositoryDb.getId(), statusOrderEnum);
+            return gateway.updateStatusOrder(orderRepositoryDb.getId(), statusOrderEnum);
         }
         else{
             return new ResponseEntity<>(orderRepositoryDb, HttpStatus.NO_CONTENT);
