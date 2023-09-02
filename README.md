@@ -89,6 +89,7 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
 **Parte 2**
 
   1. Acessar o diretório /infra, onde a estrutura do k8s foi armazenada
+  
   ```sh
   cd infra/
   ```
