@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api-fastfood-deployment
 spec:
-  replicas: 1 # alterar antes de submeter
+  replicas: 2
   selector:
     matchLabels:
       app: app-fastfood
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fastfood
-        image: brunotsoares/fastfood:1.1
+        image: brunotsoares/fastfood:2.0
         ports:
         - containerPort: 8080
         env:
