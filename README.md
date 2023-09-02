@@ -94,13 +94,13 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
   ```
   2. Subir a estrutura do banco de dados
   ```sh
-  kubectl apply -f dabase/
+  kubectl apply -f database/
   ```
   3. Subir a estrutura da aplicação
   ```sh
   kubectl apply -f api/
   ```
-  4. Para realizar o acesso a aplicação, utilize a URL fornecida pelo Minikube 
+  4. Para realizar o acesso a aplicação, utilize a URL fornecida pelo Minikube
   ```sh
   minikube service api-fastfood-service --url
   ```
