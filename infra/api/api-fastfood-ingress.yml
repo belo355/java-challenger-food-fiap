@@ -6,10 +6,26 @@ spec:
   rules:
     - http:
         paths:
-        - path: /cliente/registre/
+        - path: /cliente/registre
           pathType: Prefix
           backend:
             service:
-              name: app-fastfood  # Nome do Service a ser roteado
+              name: api-fastfood-service  # Nome do Service a ser roteado
               port:
-                number: 80  # Porta do Service a ser roteado
+                number: 8080  # Porta do Service a ser roteado
+        - path: /order/create
+          pathType: Prefix
+          backend:
+            service:
+              name: api-fastfood-service  # Nome do Service a ser roteado
+              port:
+                number: 8080
+        - path: /order
+          pathType: Prefix
+          backend:
+            service:
+              name: api-fastfood-service  # Nome do Service a ser roteado
+              port:
+                number: 8080
+
+# testar com a anotação de beckend default
