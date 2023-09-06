@@ -39,11 +39,12 @@ Entrega parte 2 (APIs e Infraestrutura):
 Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** que o Kubernetes e o Minikube (ou outra tecnologia que provisione um cluster K8s local para teste) estejam instalados corretamente.
 
 **Parte 1**
-* docker
+ 
+ docker
   ```sh
   sudo apt-get install docker.io
   ```
-* docker-compose
+ docker-compose
   ```sh
   sudo apt-get install docker-compose
   ```
