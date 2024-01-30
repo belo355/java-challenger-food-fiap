@@ -25,7 +25,7 @@ public class MakeListProductsByCategoryUseCase {
 
     public ResponseEntity findByCategory(String category) {
         CategoryEnum categoryEnum1 = CategoryEnum.valueOf(category.toUpperCase());
-        Optional<List<ProductoRepositoryDb>> products = productoRepository.findByCategory(categoryEnum1); //todo:alterar para presentation
+        Optional<List<ProductoRepositoryDb>> products = productoRepository.findByCategory(categoryEnum1);
         if (products.isPresent() && !products.get().isEmpty()) {
             return new ResponseEntity<>(products, HttpStatus.OK);
         } else {

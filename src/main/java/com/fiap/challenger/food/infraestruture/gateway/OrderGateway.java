@@ -1,7 +1,6 @@
 package com.fiap.challenger.food.infraestruture.gateway;
 
 import com.fiap.challenger.food.application.domain.entities.Cliente;
-import com.fiap.challenger.food.application.domain.entities.Order;
 import com.fiap.challenger.food.application.domain.entities.Producto;
 import com.fiap.challenger.food.common.StatusOrderEnum;
 import com.fiap.challenger.food.common.dto.CheckoutDto;
@@ -41,12 +40,10 @@ public class OrderGateway {
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<Long> create(Order order) {
-        OrderRepositoryDb orderRepositoryDb = new OrderRepositoryDb(order);
-        orderRepositoryDb.setStatusOrderEnum(StatusOrderEnum.RECEBIDO);
+    public ResponseEntity<Long> create(OrderRepositoryDb orderRepositoryDb) {
         try {
             orderRepository.save(orderRepositoryDb);
-            logger.info("Pedido criado com sucesso");  //todo: passar regra para useCase
+            logger.info("Pedido criado com sucesso");
             Optional<OrderRepositoryDb> orderId = orderRepository.findById(orderRepositoryDb.getId());
             return ResponseEntity.ok(orderId.get().getId());
         } catch (Exception e) {
