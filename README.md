@@ -1,15 +1,15 @@
 
-# Challenger POS-TECH 
+# Challenger POS-TECH FIAP 
 
 ## 💻 Projeto
-Projeto para desenvolvimento de sistema de fast food, para apoio a uma lanchonete de baiiro que está expandindo suas operacoes devido seu grande sucesso. 
+Projeto para desenvolvimento de sistema de fast food, automatizando a operação de atendimento de uma lanchonete de baiiro que está expandindo seus negocios.
 
 Entrega parte 1 (APIs):
   ```sh
 * Cadastro de cliente
   * Identificação via cpf
 * Crud Produtos
-* Buscar produto por categoria
+    * Buscar produto por categoria
 * Fake checkout 
 * Lista de pedidos 
   ```
@@ -17,13 +17,11 @@ Entrega parte 1 (APIs):
 Entrega parte 2 (APIs e Infraestrutura):
   ```sh
 * Configuração de infra escalável e orquestrada com k8s
-  * 
 * Refatoração da app, aplicando conceitos de Clean Architecture
   * Checkout pedidos 
   * Atualização de status pedido (RECEBIDO, EM_PREPARACAO, PRONTO)
   * Listagem de pedidos de forma ordenada (data_chegada e status_pedido)
   ```
-
 ## 🔖 Infraestrutura
 
 ### Built With
@@ -34,11 +32,9 @@ Entrega parte 2 (APIs e Infraestrutura):
 * Minikube
 * Kubernetes 1.26+
 
-### Prerequisites
+### Pré-requisitos
 
 Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** que o Kubernetes e o Minikube (ou outra tecnologia que provisione um cluster K8s local para teste) estejam instalados corretamente.
-
-**Parte 1**
  
  docker
   ```sh
@@ -48,7 +44,6 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
   ```sh
   sudo apt-get install docker-compose
   ```
-**Parte 2**
 
   Garantir que o serviço docker esteja em execução
   
@@ -65,10 +60,8 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
   minikube start
   ```
   
-### Installation
+### Instalação
 
-
-**Parte 1**
 
 1. Clone the repo
    ```sh
@@ -82,34 +75,34 @@ Assumimos que para rodar as instruções que serão passadas na ** Parte 2 ** qu
    ```sh
    docker-compose up
    ```
+4. (Opcional) para windows talvez seja necessario executar tambem o seguinte comando no arquivo dockfile: 
 4. (Optional) for windows maybe need to add this command before RUN ./mvnw into dockerfile :
    ```sh
    RUN dos2unix mvnw
    ```
 
-**Parte 2**
 
-  1. Acessar o diretório /infra, onde a estrutura do k8s foi armazenada
+6. Acessar o diretório /infra, onde a estrutura do k8s foi armazenada
   
   ```sh
   cd infra/
   ```
-  2. Subir a estrutura do banco de dados
+7.  Subir a estrutura do banco de dados
   ```sh
   kubectl apply -f database/
   ```
-  3. Subir a estrutura da aplicação
+8.  Subir a estrutura da aplicação
   ```sh
   kubectl apply -f api/
   ```
-  4. Para realizar o acesso a aplicação, utilize a URL fornecida pelo Minikube
+9.  Para realizar o acesso a aplicação, utilize a URL fornecida pelo Minikube
   ```sh
   minikube service api-fastfood-service --url
   ```
 
 ## 🚀 Vamos  Começar 
 
-Abaixo segue configurações locais e exemplos de apis entregues nas partes 1 e 2 
+Abaixo segue configurações locais e exemplos de apis entregues
 
 ### API Especification - 👀 Tea with my! 
 Docker (local)

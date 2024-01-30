@@ -23,7 +23,11 @@ public class ProductoController {
     private final ProductoGateway productoGateway;
 
     @Autowired
-    public ProductoController(MakeCreateNewProductoUseCase makeCreateNewProductoUseCase, MakeUpdateProductoExistingUseCase makeUpdateProductoExistingUseCase, MakeRemoveProductoExistingUseCase makeRemoveProductoExistingUseCase, MakeListProductsByCategoryUseCase makeListProductsByCategoryUseCase, ProductoGateway productoGateway){
+    public ProductoController(MakeCreateNewProductoUseCase makeCreateNewProductoUseCase,
+                              MakeUpdateProductoExistingUseCase makeUpdateProductoExistingUseCase,
+                              MakeRemoveProductoExistingUseCase makeRemoveProductoExistingUseCase,
+                              MakeListProductsByCategoryUseCase makeListProductsByCategoryUseCase,
+                              ProductoGateway productoGateway){
         this.makeCreateNewProductoUseCase = makeCreateNewProductoUseCase;
         this.makeUpdateProductoExistingUseCase = makeUpdateProductoExistingUseCase;
         this.makeRemoveProductoExistingUseCase = makeRemoveProductoExistingUseCase;

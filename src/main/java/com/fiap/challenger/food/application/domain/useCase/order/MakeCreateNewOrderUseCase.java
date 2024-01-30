@@ -1,8 +1,10 @@
 package com.fiap.challenger.food.application.domain.useCase.order;
 
 import com.fiap.challenger.food.application.domain.entities.Order;
+import com.fiap.challenger.food.common.StatusOrderEnum;
 import com.fiap.challenger.food.common.form.OrderFormDto;
 import com.fiap.challenger.food.infraestruture.gateway.OrderGateway;
+import com.fiap.challenger.food.infraestruture.repository.OrderRepositoryDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,9 @@ public class MakeCreateNewOrderUseCase {
             logger.info("Pedido nao pode ser criado sem produtos selecionados");
             return ResponseEntity.noContent().build();
         } else {
-            return gateway.create(order);
+            OrderRepositoryDb orderRepositoryDb = new OrderRepositoryDb(order);
+            orderRepositoryDb.setStatusOrderEnum(StatusOrderEnum.RECEBIDO);
+            return gateway.create(orderRepositoryDb);
         }
     }
 }
